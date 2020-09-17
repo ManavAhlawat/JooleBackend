@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-//import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 @RestController
@@ -18,15 +18,15 @@ public class UserController {
     @Autowired
     private UserService service;
 
-//    @Autowired
-//    private PasswordEncoder bcryptEncoder;
+    @Autowired
+    private PasswordEncoder bcryptEncoder;
 
     @PostMapping("/register")
     public ResponseEntity<?> addUser(@RequestBody UserTO user){
         if(user.getUsername().equals(service.getByUserName(user.getUsername()))){
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
-        //user.setPassword(bcryptEncoder.encode(user.getPassword()));
+        user.setPassword(bcryptEncoder.encode(user.getPassword()));
 //        user.setMemberSince(Calendar.getInstance().getTime());
         System.out.println(user);
         return new ResponseEntity<>(service.saveUser(user),HttpStatus.CREATED);
