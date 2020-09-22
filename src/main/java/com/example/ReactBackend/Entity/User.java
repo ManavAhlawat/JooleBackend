@@ -38,9 +38,9 @@ public class User {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date memberSince;
 
-    @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "UserProduct_FK", referencedColumnName = "userID")
-    private Set<Product> products;
+//    @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "UserProduct_FK", referencedColumnName = "userID")
+//    private Set<Product> products;
 
     public int getUserID() {
         return userID;
@@ -98,18 +98,18 @@ public class User {
         this.memberSince = memberSince;
     }
 
-    public Set<Product> getProducts() {
-        Set<Product> setToReturn = new HashSet<>();
-        for (Product p: products) {
-            p.setUser(null);
-            setToReturn.add(p);
-        }
-        return setToReturn;
-    }
-
-    public void setProducts(Set<Product> products) {
-        this.products = products;
-    }
+//    public Set<Product> getProducts() {
+//        Set<Product> setToReturn = new HashSet<>();
+//        for (Product p: products) {
+//            p.setUser(null);
+//            setToReturn.add(p);
+//        }
+//        return setToReturn;
+//    }
+//
+//    public void setProducts(Set<Product> products) {
+//        this.products = products;
+//    }
 
     @Override
     public String toString() {
@@ -121,7 +121,6 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", memberSince=" + memberSince +
-                ", products=" + products +
                 '}';
     }
 

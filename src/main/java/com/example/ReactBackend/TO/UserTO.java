@@ -14,7 +14,7 @@ public class UserTO {
     private String lastName;
     private String email;
     private String memberSince;
-    private List<ProductTO> products;
+//    private List<ProductTO> products;
 
     public int getUserID() {
         return userID;
@@ -72,13 +72,13 @@ public class UserTO {
         this.memberSince = memberSince;
     }
 
-    public List<ProductTO> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<ProductTO> products) {
-        this.products = products;
-    }
+//    public List<ProductTO> getProducts() {
+//        return products;
+//    }
+//
+//    public void setProducts(List<ProductTO> products) {
+//        this.products = products;
+//    }
 
     @Override
     public String toString() {
@@ -90,7 +90,6 @@ public class UserTO {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", memberSince='" + memberSince + '\'' +
-                ", products=" + products +
                 '}';
     }
 
@@ -105,12 +104,12 @@ public class UserTO {
                 Objects.equals(getFirstName(), userTO.getFirstName()) &&
                 Objects.equals(getLastName(), userTO.getLastName()) &&
                 Objects.equals(getEmail(), userTO.getEmail()) &&
-                Objects.equals(getMemberSince(), userTO.getMemberSince()) &&
-                Objects.equals(getProducts(), userTO.getProducts());
+                Objects.equals(getMemberSince(), userTO.getMemberSince());
+                //Objects.equals(getProducts(), userTO.getProducts());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUserID(), getUsername(), getPassword(), getFirstName(), getLastName(), getEmail(), getMemberSince(), getProducts());
+        return Objects.hash(getUserID(), getUsername(), getPassword(), getFirstName(), getLastName(), getEmail(), getMemberSince());
     }
 }
